@@ -57,4 +57,205 @@ body{
 }
 
 /* Imagem de fundo estática */
-.banner-
+.banner-gif {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.62) saturate(1.05);
+  transition: transform 8s ease, filter 0.3s ease;
+}
+
+/* leve movimento ao passar o mouse (opcional) */
+.hero-banner:hover .banner-gif {
+  transform: scale(1.03);
+}
+
+/* Caixa com texto em cima do banner */
+.banner-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(6,10,12,0.38), rgba(6,10,12,0.32));
+  padding: 1.3rem 1.2rem;
+  border-radius: 14px;
+  max-width: 86%;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(2,6,12,0.45);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Overlay text */
+.banner-overlay h1 {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.banner-overlay p {
+  margin: 0.6rem 0 0;
+  color: var(--subtext);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+}
+
+/* ----- HEADER ----- */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.2rem;
+  padding: 1.25rem 1rem;
+  margin-top: -36px; /* leve sobreposição com o banner para efeito moderno */
+  position: relative;
+  z-index: 3;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header .avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  border: 3px solid rgba(88,166,255,0.14);
+  box-shadow: 0 8px 24px rgba(2,6,12,0.45);
+  flex-shrink:0;
+}
+
+.header h1{
+  margin:0;
+  font-size:1.1rem;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.header p{
+  margin: 6px 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+/* socials (links) */
+.socials{
+  display:flex;
+  gap:10px;
+  margin-top:8px;
+  justify-content:flex-start;
+}
+.socials a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  background:transparent;
+  padding:6px 8px;
+  border-radius:8px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* ----- MAIN CONTENT ----- */
+main.container{
+  padding-top: 0.6rem;
+}
+
+/* Sections */
+section{
+  background: transparent;
+  margin-bottom: 1.6rem;
+}
+
+/* Section headings */
+section h2{
+  font-size:1.05rem;
+  margin:0 0 0.7rem 0;
+  font-weight:700;
+  color:var(--text);
+}
+
+/* Paragraphs */
+section p{
+  color:var(--subtext);
+  margin:0;
+  font-size:0.98rem;
+}
+
+/* Skills list */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.skills li{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border:1px solid rgba(255,255,255,0.03);
+  padding:8px 12px;
+  border-radius:10px;
+  color:var(--text);
+  font-weight:600;
+  font-size:0.95rem;
+}
+
+/* Projects layout */
+.projects{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:1rem;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:1rem;
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--shadow);
+}
+.card h3{margin:0 0 0.35rem 0; font-size:1rem}
+.card p{margin:0 0 0.6rem 0; color:var(--subtext)}
+.card a{color:var(--accent); text-decoration:none; font-weight:700}
+
+/* ----- FOOTER ----- */
+.footer{
+  margin-top:2.4rem;
+  padding:1rem 0;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  background: transparent;
+  font-size:0.95rem;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 900px){
+  .projects{ grid-template-columns: 1fr; }
+  .header{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -46px;
+    gap: 0.6rem;
+    padding: 1rem;
+  }
+  .socials{ justify-content:center }
+  .header .avatar{ width:86px; height:86px; }
+}
+
+@media (max-width: 520px){
+  .hero-banner{ height: 36vh; min-height:220px }
+  .banner-overlay{ padding: 1rem; max-width:94% }
+  .banner-overlay h1{ font-size:1.25rem }
+  .banner-overlay p{ font-size:0.95rem }
+  .header .avatar{ width:76px; height:76px }
+  section p, .card p{ font-size:0.95rem }
+  .skills li{ padding:7px 10px; font-size:0.9rem }
+}
+
+/* Small helpers */
+a{ color:var(--accent) }
+strong{ color:var(--text) }
