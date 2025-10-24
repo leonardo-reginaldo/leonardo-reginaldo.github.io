@@ -1,41 +1,74 @@
+/* 🔹 Banner principal */
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 60vh; /* Altura proporcional à tela */
+  min-height: 320px;
+  max-height: 500px;
   overflow: hidden;
   border-bottom: 2px solid #30363d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000; /* fundo de segurança para evitar espaços brancos */
 }
 
+/* 🔹 Imagem de fundo */
 .banner-gif {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
-}
-
-.banner-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  opacity: 0.75;
+  filter: brightness(0.8);
+  transition: transform 8s ease-in-out;
+}
+
+/* Efeito leve de zoom contínuo */
+.hero-banner:hover .banner-gif {
+  transform: scale(1.05);
+}
+
+/* 🔹 Texto sobre o banner */
+.banner-overlay {
+  position: relative;
+  z-index: 1;
   text-align: center;
   color: #e6edf3;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(6px); /* efeito vidro fosco moderno */
+  max-width: 800px;
+  margin: 0 1rem;
 }
 
+/* 🔹 Título */
 .banner-overlay h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   margin: 0;
+  line-height: 1.2;
 }
 
+/* 🔹 Subtítulo */
 .banner-overlay p {
   font-size: 1.1rem;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
   color: #c9d1d9;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 768px) {
+  .banner-overlay h1 {
+    font-size: 1.6rem;
+  }
+  .banner-overlay p {
+    font-size: 1rem;
+  }
+  .hero-banner {
+    height: 45vh;
+  }
 }
